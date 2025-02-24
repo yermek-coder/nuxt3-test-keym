@@ -1,6 +1,12 @@
-## Fruit Explorer
+## Fruit Explorer - Test task for Key M
 
-Deployed version: 
+Application displays list of fruits, have dynamic filtering and locally stored favorite list.
+
+To access family click family tag on fruit card.
+
+Built using Nuxt 3 SSR, Pinia, Typescript
+
+Deployed version: https://nuxt3-test-keym.netlify.app/
 
 ## Setup
 
