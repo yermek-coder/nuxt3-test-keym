@@ -10,6 +10,15 @@ interface APIError {
 }
 
 class API {
+    config = {
+        proxyAddress: "https://cors-proxy-yermek.netlify.app/.netlify/functions/cors-proxy",
+        apiAddress: "https://www.fruityvice.com/api/",
+    }
+
+    path(path: string) {
+        return `${this.config.proxyAddress}?url=${encodeURIComponent(this.config.apiAddress + path)}`
+    }
+
     post<T = unknown>(path: string, body?: unknown, config?: APIConfig): Promise<T> {
         return this.exec<T>('post', path, body, config);
     }
@@ -38,7 +47,7 @@ class API {
             }
         }
 
-        const response = await fetch(`/api/${path}`, {
+        const response = await fetch(this.path(path), {
             ...config,
             method,
             headers,

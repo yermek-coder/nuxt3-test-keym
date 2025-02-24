@@ -1,8 +1,13 @@
+import type { Fruit } from "~/types/fruit";
 import api from "./api";
 
 class FruitService {
-    getAll() {
-        return api.get(`/api/fruit/all`)
+    getAll(): Promise<Fruit[]> {
+        return api.get("fruit/all")
+    }
+
+    getByFamily(family: string): Promise<Fruit[]> {
+        return api.get("fruit/family/" + family)
     }
 }
 
