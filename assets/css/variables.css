@@ -1,0 +1,5 @@
+:root {
+    --containerGutter: 2rem;
+    --containerInternalWidth: 75rem;
+    --containerMaxWidth: var(--containerInternalWidth) + (2 * var(--containerGutter));
+}

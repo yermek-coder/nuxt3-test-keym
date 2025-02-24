@@ -1,8 +1,26 @@
 .header {
     border-bottom: 1px solid #ccc;
     padding: .5em 1em;
+    margin-bottom: 1rem;
+}
+
+.header .container {
     display: flex;
     justify-content: space-between;
+}
+
+.header .router-link-exact-active {
+    position: relative;
+}
+
+.header .router-link-exact-active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: black;
 }
 
 .header-identity h1 {
@@ -20,4 +38,10 @@
 .header-navigation li {
     display: inline-block;
     margin: 1.4em 1em 1em 1em;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: var(--containerMaxWidth);
+    padding: 0 var(--containerGutter);
 }

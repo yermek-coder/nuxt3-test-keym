@@ -1,0 +1,92 @@
+.fruit-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    gap: 1rem;
+}
+
+@media (width < 1200px) {
+    .fruit-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (width < 900px) {
+    .fruit-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (width < 600px) {
+    .fruit-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (width < 480px) {
+    .fruit-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.fruit-card {
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+.fruit-card-title {
+    padding: 0.5rem 0.75rem;
+    margin-block: 0;
+}
+
+.fruit-card-body {
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.fruit-card-body-nutritions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+}
+
+.fruit-card-footer {
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.fruit-card-family {
+    font-size: 0.75rem;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    background-color: rgb(230, 230, 230);
+}
+
+.fruit-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.fruit-filters-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+}
+
+.fruit-filters-group input {
+    width: 3rem;
+}
+
+.fruit-filters-group-body {
+    display: flex;
+    gap: 0.5rem;
+}
