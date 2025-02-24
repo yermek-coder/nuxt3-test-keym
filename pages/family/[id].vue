@@ -18,7 +18,7 @@ import { useFruitsStore, useFavoriteFruits } from '~/store/fruit';
 const route = useRoute();
 const familyId = computed(() => route.params.id)
 
-const store = useFruitsStore(typeof familyId.value === 'string' ? familyId.value : null)
+const store = useFruitsStore(familyId.value as string)
 const favoritesStore = useFavoriteFruits();
 
 await useAsyncData("familyFruits" + familyId.value, store.fetchFruits)

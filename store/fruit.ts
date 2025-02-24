@@ -2,8 +2,8 @@ import { defineStore, getActivePinia } from "pinia"
 import fruitService from '~/services/fruit'
 import type { Fruit, FruitFilters } from "~/types/fruit";
 
-export function useFruitsStore(family: string | null = null) {
-    const id = `fruits${family || 'All'}`;
+export function useFruitsStore(family: string = 'All') {
+    const id = `fruits${family}`;
 
     const store = defineStore(id, () => {
         const items = ref<Fruit[]>([]);
