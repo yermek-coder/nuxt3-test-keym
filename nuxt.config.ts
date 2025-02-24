@@ -1,11 +1,24 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      link: [
+        {
+          href: 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css',
+          rel: 'stylesheet',
+        }
+      ]
+    }
+  },
+
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
+
   plugins: [
     '~/plugins/modal'
   ],
+
   components: [
     '~/components',
     {
@@ -17,16 +30,10 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
+
   typescript: {
     typeCheck: true
   },
-  nitro: {
-    devProxy: {
-      "/api": {
-        target: "https://www.fruityvice.com/api",
-        changeOrigin: true,
-        prependPath: true,
-      }
-    }
-  },
+
+  modules: ['@pinia/nuxt'],
 })
