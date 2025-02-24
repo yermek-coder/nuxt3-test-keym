@@ -15,16 +15,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
 
-  plugins: [
-    '~/plugins/modal'
-  ],
-
   components: [
     '~/components',
-    {
-      global: true,
-      path: '~/components/global'
-    },
     {
       path: '~/components/common',
       pathPrefix: false,
