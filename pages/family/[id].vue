@@ -3,12 +3,12 @@
         <h2>{{ route.params.id }}</h2>
 
         <FruitFilters :filters="store.filters" />
-        <div v-if="store.filteredItems.length" class="fruit-grid">
+        <NothingFound v-if="isEmpty" />
+        <div v-else class="fruit-grid">
             <div v-for="item in store.filteredItems" :key="item.id">
                 <FruitCard :fruit="item" />
             </div>
         </div>
-        <NothingFound v-else />
     </div>
 </template>
 
@@ -20,6 +20,7 @@ const familyId = computed(() => route.params.id)
 
 const store = useFruitsStore(familyId.value as string)
 const favoritesStore = useFavoriteFruits();
+const isEmpty = computed(() => !store.filteredItems.length)
 
 await useAsyncData("familyFruits" + familyId.value, store.fetchFruits)
 

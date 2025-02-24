@@ -2,7 +2,7 @@ import { defineStore, getActivePinia } from "pinia"
 import fruitService from '~/services/fruit'
 import type { Fruit, FruitFilters } from "~/types/fruit";
 
-export function useFruitsStore(family: string = 'All') {
+export function useFruitsStore(family = 'All') {
     const id = `fruits${family}`;
 
     const store = defineStore(id, () => {
@@ -32,10 +32,10 @@ export function useFruitsStore(family: string = 'All') {
             })
         })
 
-        function fetchFruits() {
-            return (family ? fruitService.getByFamily(family) : fruitService.getAll()).then(result => (items.value = result))
+        async function fetchFruits() {
+            items.value = await (family === 'All' ? fruitService.getAll() : fruitService.getByFamily(family))
+            return items
         }
-
 
         function dispose() {
             store.$dispose()
@@ -47,8 +47,8 @@ export function useFruitsStore(family: string = 'All') {
 
         return {
             fetchFruits,
-            favoriteItems,
             items,
+            favoriteItems,
             filteredItems,
             filters,
             dispose
