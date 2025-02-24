@@ -2,4 +2,11 @@
     --containerGutter: 2rem;
     --containerInternalWidth: 75rem;
     --containerMaxWidth: var(--containerInternalWidth) + (2 * var(--containerGutter));
+
+    --bg-color: rgb(230, 230, 230);
+    --text-color: #000;
+
+    --header-border-color: #ccc;
+
+    --card-color: white;
 }

@@ -1,17 +1,16 @@
 @import "./variables.css";
 @import "./layout.css";
-@import "./modal.css";
 @import "./fruit.css";
 
 body {
     font-family: Helvetica;
     margin: 0;
-    background-color: rgb(230, 230, 230);
+    background-color: var(--bg-color);
 }
 
 a {
     text-decoration: none;
-    color: #000;
+    color: var(--text-color);
 }
 
 button {

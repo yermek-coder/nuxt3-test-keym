@@ -1,5 +1,5 @@
 .header {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--header-border-color);
     padding: .5em 1em;
     margin-bottom: 1rem;
 }

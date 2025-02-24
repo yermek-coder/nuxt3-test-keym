@@ -30,7 +30,7 @@
 }
 
 .fruit-card {
-    background-color: white;
+    background-color: var(--card-color);
     border-radius: 0.5rem;
 }
 
