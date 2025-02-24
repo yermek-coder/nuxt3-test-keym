@@ -45,3 +45,9 @@
     max-width: var(--containerMaxWidth);
     padding: 0 var(--containerGutter);
 }
+
+.nothing-found {
+    padding: 2rem;
+    text-align: center;
+    color: var(--text-secondary-color);
+}

@@ -1,10 +1,11 @@
 <template>
     <div class="container">
-        <div class="fruit-grid">
+        <div v-if="store.favoriteItems.length" class="fruit-grid">
             <div v-for="item in store.favoriteItems" :key="item.id">
                 <FruitCard :fruit="item" />
             </div>
         </div>
+        <NothingFound v-else />
     </div>
 </template>
 
@@ -17,5 +18,4 @@ const favoritesStore = useFavoriteFruits();
 await useAsyncData("favoriteFruits", store.fetchFruits);
 
 onMounted(favoritesStore.loadFavorites)
-onUnmounted(store.dispose)
 </script>

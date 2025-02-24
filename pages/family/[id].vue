@@ -3,11 +3,12 @@
         <h2>{{ route.params.id }}</h2>
 
         <FruitFilters :filters="store.filters" />
-        <div class="fruit-grid">
+        <div v-if="store.filteredItems.length" class="fruit-grid">
             <div v-for="item in store.filteredItems" :key="item.id">
                 <FruitCard :fruit="item" />
             </div>
         </div>
+        <NothingFound v-else />
     </div>
 </template>
 
