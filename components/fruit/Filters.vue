@@ -3,8 +3,8 @@
         <div v-for="(value, key) in filters" :key="key" class="fruit-filters-group">
             <div class="fruit-filters-group-title">{{ key }}</div>
             <div class="fruit-filters-group-body">
-                <input v-model="value[0]" type="number">
-                <input v-model="value[1]" type="number">
+                <input v-model.lazy="value[0]" type="number">
+                <input v-model.lazy="value[1]" type="number">
             </div>
         </div>
     </div>

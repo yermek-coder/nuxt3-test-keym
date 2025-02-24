@@ -12,8 +12,7 @@
         <div class="fruit-card-footer">
             <NuxtLink :to="`/family/${fruit.family}`" class="fruit-card-family">{{ fruit.family }}</NuxtLink>
             <button @click="favoritesStore.toggleFavorite(fruit)">
-                <Icon v-if="favoritesStore.isFavorite(fruit)" icon="star-fill" />
-                <Icon v-else icon="star" />
+                <Icon v-memo="[isFavorite]" :icon="isFavorite ? 'star-fill' : 'star'" />
             </button>
         </div>
     </div>
@@ -23,7 +22,8 @@
 import type { Fruit } from '~/types/fruit';
 import { useFavoriteFruits } from '~/store/fruit';
 
+const props = defineProps<{ fruit: Fruit }>();
 const favoritesStore = useFavoriteFruits();
 
-defineProps<{ fruit: Fruit }>();
+const isFavorite = computed(() => favoritesStore.isFavorite(props.fruit));
 </script>
