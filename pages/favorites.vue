@@ -1,8 +1,7 @@
 <template>
     <div class="container">
-        <FruitFilters :filters="store.filters" />
         <div class="fruit-grid">
-            <div v-for="item in store.filteredItems" :key="item.id">
+            <div v-for="item in store.favoriteItems" :key="item.id">
                 <FruitCard :fruit="item" />
             </div>
         </div>
@@ -12,10 +11,10 @@
 <script setup lang="ts">
 import { useFruitsStore, useFavoriteFruits } from '~/store/fruit';
 
-const store = useFruitsStore()
+const store = useFruitsStore();
 const favoritesStore = useFavoriteFruits();
 
-await useAsyncData("fruits", store.fetchFruits)
+await useAsyncData("favoriteFruits", store.fetchFruits);
 
 onMounted(favoritesStore.loadFavorites)
 onUnmounted(store.dispose)

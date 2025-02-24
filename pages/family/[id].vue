@@ -1,5 +1,7 @@
 <template>
     <div class="container">
+        <h2>{{ route.params.id }}</h2>
+
         <FruitFilters :filters="store.filters" />
         <div class="fruit-grid">
             <div v-for="item in store.filteredItems" :key="item.id">
@@ -12,10 +14,13 @@
 <script setup lang="ts">
 import { useFruitsStore, useFavoriteFruits } from '~/store/fruit';
 
-const store = useFruitsStore()
+const route = useRoute();
+const familyId = computed(() => route.params.id)
+
+const store = useFruitsStore(typeof familyId.value === 'string' ? familyId.value : null)
 const favoritesStore = useFavoriteFruits();
 
-await useAsyncData("fruits", store.fetchFruits)
+await useAsyncData("familyFruits" + familyId.value, store.fetchFruits)
 
 onMounted(favoritesStore.loadFavorites)
 onUnmounted(store.dispose)
